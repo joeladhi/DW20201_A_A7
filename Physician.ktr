@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2020/12/03 11:37:16.975</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/12/06 22:24:21.736</modified_date>
+    <modified_date>2020/12/07 03:31:49.428</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -572,60 +572,6 @@
     </hop>
   </order>
   <step>
-    <name>lookup area</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>ProjectDW</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>finalprojectdw</schema>
-      <table>area</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>singapore-area</name>
-        <field>LokasiArea</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>AreaID</name>
-        <rename>AreaID</rename>
-        <default/>
-        <type>None</type>
-      </value>
-      <value>
-        <name>NamaRegion</name>
-        <rename>NamaRegion</rename>
-        <default/>
-        <type>None</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Dimension lookup/update</name>
     <type>DimensionLookup</type>
     <description/>
@@ -642,10 +588,6 @@
     <commit>100</commit>
     <update>Y</update>
     <fields>
-      <key>
-        <name>AreaID</name>
-        <lookup>AreaID</lookup>
-      </key>
       <key>
         <name>SSN</name>
         <lookup>SSN</lookup>
@@ -673,6 +615,11 @@
       <field>
         <name>NamaRegion</name>
         <lookup>NamaRegion</lookup>
+        <update>Insert</update>
+      </field>
+      <field>
+        <name>AreaID</name>
+        <lookup>AreaID</lookup>
         <update>Insert</update>
       </field>
       <return>
@@ -1032,6 +979,60 @@
     <GUI>
       <xloc>144</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>lookup area</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>ProjectDW</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>finalprojectdw</schema>
+      <table>area</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>singapore-area</name>
+        <field>LokasiArea</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>AreaID</name>
+        <rename>AreaID</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>NamaRegion</name>
+        <rename>NamaRegion</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

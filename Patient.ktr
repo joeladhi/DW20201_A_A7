@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2020/12/02 21:38:32.547</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/12/06 22:24:23.384</modified_date>
+    <modified_date>2020/12/07 03:23:48.885</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -646,114 +646,6 @@
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>lookup area</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>ProjectDW</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>finalprojectdw</schema>
-      <table>area</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>patient-singapore-area</name>
-        <field>LokasiArea</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>AreaID</name>
-        <rename>AreaID</rename>
-        <default/>
-        <type>None</type>
-      </value>
-      <value>
-        <name>NamaRegion</name>
-        <rename>NamaRegion</rename>
-        <default/>
-        <type>None</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>lookup pekerjaan</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>ProjectDW</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>finalprojectdw</schema>
-      <table>pekerjaanpatient</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>patient-occupation-subcategory</name>
-        <field>NamaPekerjaan</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>occupation-major-group</name>
-        <field>NamaKategoriPekerjaan</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>PekerjaanID</name>
-        <rename>PekerjaanID</rename>
-        <default/>
-        <type>None</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Dimension lookup/update</name>
     <type>DimensionLookup</type>
@@ -1410,6 +1302,114 @@
     <GUI>
       <xloc>96</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>lookup area</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>ProjectDW</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>finalprojectdw</schema>
+      <table>area</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>patient-singapore-area</name>
+        <field>LokasiArea</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>AreaID</name>
+        <rename>AreaID</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>NamaRegion</name>
+        <rename>NamaRegion</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>lookup pekerjaan</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>ProjectDW</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>finalprojectdw</schema>
+      <table>pekerjaanpatient</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>patient-occupation-subcategory</name>
+        <field>NamaPekerjaan</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>occupation-major-group</name>
+        <field>NamaKategoriPekerjaan</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>PekerjaanID</name>
+        <rename>PekerjaanID</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
